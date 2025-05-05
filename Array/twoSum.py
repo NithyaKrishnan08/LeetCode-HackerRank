@@ -43,15 +43,15 @@ def twoSum3(nums, target):
 nums = [1, 2, 3, 4]
 target = 3
 result = twoSum1(nums, target)
-print(result)
+print("Brute Force Solution: ", result)
 
 nums = [1, 2, 3, 4]
 target = 3
 result = twoSum2(nums, target)
-print(result)
+print("Better Solution: ", result)
 
 nums = [1, 2, 3, 4]
 target = 3
 result = twoSum3(nums, target)
-print(result)
+print("Optimized Solution: ", result)
 
