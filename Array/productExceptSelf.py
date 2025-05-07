@@ -33,7 +33,7 @@ def productExceptSelf1(nums):
   result_nums = [totalProduct // num for num in nums]
   return result_nums
 
-#  Optimizex solution
+#  Optimized solution
 #  Time Complexity: O(n)
 #  Space Complexity: O(1)
 

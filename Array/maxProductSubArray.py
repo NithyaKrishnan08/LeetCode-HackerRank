@@ -49,11 +49,28 @@ def maxProductSubArray2(nums):
 
   return maxProduct
 
-# Optimal Solution - Kadane's Algorithm
+# Optimal Solution - By observation
 # Time Complexity - O(N)
 # Time Complexity - O(1)
 
+def maxProductSubArray3(nums):
+  maxProduct = -float('inf')
+  n = len(nums)
+  prevProduct = 1
+  suffProduct = 1
 
+  for i in range(n):
+    if (prevProduct == 0):
+      prevProduct = 1
+
+    if (suffProduct == 0):
+      suffProduct = 1
+
+    prevProduct *= nums[i]
+    suffProduct *= nums[n-i-1]
+    maxProduct = max(maxProduct, max(prevProduct, suffProduct))
+
+  return maxProduct
 
 # Optimal Solution - Kadane's Algorithm - to display the sub-array
 # Time Complexity - O(N)
@@ -77,3 +94,10 @@ if __name__ == "__main__":
 
   result4 = maxProductSubArray2(arr2)
   print(f"The largest product of subarray: {arr2} is {result4}")
+
+  print("Optimal solution:")
+  result5 = maxProductSubArray3(arr1)
+  print(f"The largest product of subarray: {arr1} is {result5}")
+
+  result6 = maxProductSubArray3(arr2)
+  print(f"The largest product of subarray: {arr2} is {result6}")
