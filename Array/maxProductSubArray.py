@@ -72,11 +72,6 @@ def maxProductSubArray3(nums):
 
   return maxProduct
 
-# Optimal Solution - Kadane's Algorithm - to display the sub-array
-# Time Complexity - O(N)
-# Time Complexity - O(1)
-
-
 if __name__ == "__main__":
   arr1 = [2,3,-2,4]
   arr2 = [-2,0,-1]
