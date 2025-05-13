@@ -1,21 +1,23 @@
-# Insert node at the head of the linked list
+# Reverse the linked list
 
 class Node:
   def __init__(self, data, next=None):
     self.data = data
     self.next = next
 
-def deleteLastNodeLL(head):
+def reverseLL(head):
   temp = head
+  prev = None
   while temp is not None:
-    if temp.next.next is None:
-      temp.next = None
-    temp = temp.next
-  return head
+    next_node = temp.next
+    temp.next = prev
+    prev = temp
+    temp = next_node
+  return prev
 
 def printLL(head):
   while head is not None:
-    print(head.data, end=' ')
+    print(head.data,end=' ')
     head = head.next
   print()
 
@@ -26,7 +28,7 @@ if __name__ == "__main__":
   head.next.next.next = Node(4)
   head.next.next.next.next = Node(5)
 
-  result = deleteLastNodeLL(head)
+  result = reverseLL(head)
   printLL(result)
   
 
