@@ -13,6 +13,8 @@ def printLL(head):
   print()
 
 def convertArrayToLL(arr):
+  if not arr:
+    return None
   head = Node(arr[0])
   mover = head
   for i in range(1, len(arr)):
