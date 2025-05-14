@@ -18,75 +18,40 @@ Output: false
 
 from typing import List
 
-def markRow(i, matrix: List[List[int]]) -> None:
-  m = len(matrix[0])
-  for j in range(m):
-    if matrix[i][j] != 0:
-      matrix[i][j] = float('-inf')
+# Optimal solution
+# Time Complexity: O(No. of rows * no. of columns * 4 ^ length of word)
+# Space Complexity: O(1)
 
-def markColumn(j, matrix: List[List[int]]) -> None:
-  n = len(matrix)
-  for i in range(n):
-    if matrix[i][j] != 0:
-      matrix[i][j] = float('-inf')
+def wordSearch(board: List[List[str]], word: str) -> bool:
+  rows, columns = len(board), len(board[0])
+  path = set()
 
-#  Brute force solution
-# Time Complexity: O(N^3)
-def setZeroes1(matrix: List[List[int]]) -> None:
-  n = len(matrix)
-  m = len(matrix[0])
-  for i in range(n): # O(n*m)
-    for j in range(m):
-      if matrix[i][j] == 0:
-        markRow(i, matrix) # O(n)
-        markColumn(j, matrix) # O(m)
+  def search(row, column, index):
+    if index == len(word):
+      return True
+    
+    if (row < 0 or column < 0 or row >= rows or column >= columns or word[index] != board[row][column] or (row, column) in path):
+      return False
+    
+    path.add((row, column))
+    result = search(row + 1, column, index + 1) or search(row - 1, column, index + 1) or search(row, column + 1, index + 1) or search(row, column - 1, index + 1)
+    path.remove((row, column))
+    return result
+  
+  for row in range(rows): # O(n*m)
+    for column in range(columns):
+      if search(row, column, 0):
+        return True 
+  return False
 
-  for i in range(n): # O(n*m)
-    for j in range(m):
-      if matrix[i][j] == float('-inf'):
-        matrix[i][j] = 0
-
-#  Better solution
-# Time Complexity: O(2 * n * m)
-#  SPace Complexity: O(m) + O(n)
-def setZeroes2(matrix: List[List[int]]) -> None:
-  n = len(matrix)
-  m = len(matrix[0])
-
-  row_array = [0] * n
-  col_array = [0] * m
-
-  for i in range(n): # O(n*m)
-    for j in range(m):
-      if matrix[i][j] == 0:
-        row_array[i] = 1
-        col_array[j] = 1
-
-  for i in range(n): # O(n*m)
-    for j in range(m):
-      if (row_array[i] == 1 or col_array[j] == 1):
-        matrix[i][j] = 0
-
-def printMatrix(matrix: List[List[int]]) -> None:
-  n = len(matrix)
-  m = len(matrix[0])
-  for i in range(n):
-    for j in range(m):
-      print(matrix[i][j], end=" ")
-    print("\n")
 
 if __name__ == "__main__":
-  matrix = [[0,1,2,0],[3,4,5,2],[1,3,1,5]]
-  # print("Brute force solution: ")
-  # print("Before setting zeroes: ")
-  # printMatrix(matrix)
-  # setZeroes1(matrix)
-  # print("\nAfter setting zeroes: ")
-  # printMatrix(matrix)
+  board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
+  word = "ABCCED"
 
-  print("Better solution: ")
-  print("Before setting zeroes: ")
-  printMatrix(matrix)
-  setZeroes2(matrix)
-  print("\nAfter setting zeroes: ")
-  printMatrix(matrix)
+  result = wordSearch(board, word)
+  print(result)
+  if result:
+    print(f"The word {word} exists in the board.")
+  else:
+    print(f"The word {word} is not found in the board.")
