@@ -54,15 +54,16 @@ def lengthOfLongestSubstring2(string) -> int:
 
   while right < n:
     if hash_set[ord(string[right])] != -1:
-      left = max(hash_set[ord(string[left])], left)
+      left = max(hash_set[ord(string[right])] + 1, left)
 
-    hash_set[ord(string[left])] = right
+    hash_set[ord(string[right])] = right
     max_length = max(max_length, right - left + 1)
     right += 1
+  
   return max_length
 
 if __name__ == "__main__":
-  s = "pwwkew"
+  s = "bbbbbb"
 
   print("Brute force solution")
   result = lengthOfLongestSubstring1(s)
