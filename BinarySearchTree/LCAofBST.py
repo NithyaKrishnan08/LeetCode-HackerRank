@@ -50,7 +50,7 @@ class Solution:
   
 def printInorder(root):
   if not root:
-      return
+    return
   printInorder(root.left)
   print(root.val, end=" ")
   printInorder(root.right)
