@@ -1,4 +1,4 @@
-# Recursive Fibonacci
+# Memoization - Recursion Fibonacci
 # Time Complexity: O(N)
 # Space Complexity : O(2N)
 def fibonacci1(n, dp):
@@ -10,7 +10,18 @@ def fibonacci1(n, dp):
   return dp[n]
 
 #  Tabulation Fibonacci
+# Time Complexity: O(N)
+# Space Complexity: O(N)
 def fibonacci2(n):
+  dp[0], dp[1] = 0, 1
+  for i in range(2, n):
+    dp[i] = dp[i-1] + dp[i-2]
+  return dp[n]
+
+# Space Optimization
+# Time Complexity: O(N)
+# Space Complexity: O(1)
+def fibonacci3(n):
   prev2 = 0
   prev1 = 1
   if n <= 1:

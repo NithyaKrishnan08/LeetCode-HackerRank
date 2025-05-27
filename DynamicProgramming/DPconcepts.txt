@@ -1,0 +1,26 @@
+Dynamic Programming
+
+1. Tabulation -> Bottom-up
+2. Memoization -> Top-down
+
+Memoization - tend to store the value of sub problems in some map/table.
+
+Steps of Dynamic Programming:
+0. Declare dp array
+1. Store recursion value into dp -> dp[n]
+2. Check dp arrap -> if problem is already solved
+
+Things to see if the question is DP:
+-> Count the total number of ways
+-> Min/ Max
+
+Things to apply recursion:
+-> To try all possible ways
+
+Short cut for DP problems:
+1. Try to represent the problem in terms of index
+2. Do all possible stuffs on that index according to the problem statement 
+3. If question says
+  1. Sum of all stuffs -> count all ways
+  2. min of all stuffs -> find min
+  3. max of all stuffs -> find max
