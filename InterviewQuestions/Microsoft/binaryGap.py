@@ -36,12 +36,12 @@ def solution(N):
     found_one = False
 
     for char in binary_str:   
-        if char == '1':
-            if found_one:
-                max_gap = max(max_gap, current_gap)
-            found_one = True
-            current_gap = 0
-        elif found_one:
-            current_gap += 1
+      if char == '1':
+        if found_one:
+          max_gap = max(max_gap, current_gap)
+        found_one = True
+        current_gap = 0
+      elif found_one:
+        current_gap += 1
 
     return max_gap
