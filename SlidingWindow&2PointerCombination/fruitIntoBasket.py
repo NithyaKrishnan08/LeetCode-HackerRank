@@ -42,7 +42,7 @@ from collections import deque
 
 class Solution:
   #  Brute force solution
-  # T: O(N^3)
+  # T: O(N^2)
   # S: O(3)
   def totalFruit1(self, fruits: List[int]) -> int:
     n = len(fruits)
