@@ -4,6 +4,8 @@ from typing import List
 import heapq
 from collections import defaultdict
 
+# TC: O((V + E) log V) — each node and edge can be pushed into the heap.
+# SC: O(V + E) — for the adjacency list and the distance array.
 class Solution:
   def dijkstra(self, edges, V, src):
     # Step 1: Build the adjacency list
@@ -28,8 +30,9 @@ class Solution:
 
       # Step 4: Explore the neighbors
       for neighbor, weight in graph[node]:
-        if dist[neighbor] > dist[node] + weight:
-          dist[neighbor] = dist[node] + weight
+        new_dist = dist[node] + weight
+        if dist[neighbor] > new_dist:
+          dist[neighbor] = new_dist
           heapq.heappush(min_heap, (dist[neighbor], neighbor))
 
     return dist
