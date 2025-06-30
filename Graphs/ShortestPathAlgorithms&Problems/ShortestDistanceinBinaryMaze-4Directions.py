@@ -47,4 +47,48 @@ Output:
 Explanation: 
 Since, there is no path possible between the source cell and the destination cell, hence we return -1.
 '''
+from typing import List
+from collections import deque
 
+class Solution:
+  def shortestPath(self, grid: List[List[int]], source: List[int], destination: List[int]) -> int:
+    if grid[source[0]][source[1]] == 0 or grid[destination[0]][destination[1]] == 0:
+      return -1
+    
+    rows, cols = len(grid), len(grid[0])
+    directions = [(0,1), (1, 0), (0, -1), (-1, 0)]
+
+    queue = deque()
+    queue.append((source[0], source[1], 0))
+
+    visited = [[False] * cols for _ in range(rows)]
+    visited[source[0]][source[1]] = True
+
+    while queue:
+      r, c, dist = queue.popleft()
+      
+      if [r, c] == destination:
+        return dist
+      
+      for dr, dc in directions:
+        nr, nc = r + dr, c + dc
+
+        if 0 <= nr < rows and 0 <= nc < cols and grid[nr][nc] == 1 and not visited[nr][nc]:
+          visited[nr][nc] = True
+          queue.append((nr, nc, dist + 1))
+
+    return -1
+
+if __name__ == "__main__":
+  grid = [
+      [1, 1, 1, 1],
+      [1, 1, 0, 1],
+      [1, 1, 1, 1],
+      [1, 1, 0, 0],
+      [1, 0, 0, 1]
+  ]
+  source = [0, 1]
+  destination = [2, 2]
+
+  sol = Solution()
+  print(sol.shortestPath(grid, source, destination))
