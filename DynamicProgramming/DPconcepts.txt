@@ -1,14 +1,16 @@
 Dynamic Programming
 
+"Those who cannot remember the past are condemned to repeat it"
+
 1. Tabulation -> Bottom-up
 2. Memoization -> Top-down
 
 Memoization - tend to store the value of sub problems in some map/table.
 
-Steps of Dynamic Programming:
-0. Declare dp array
-1. Store recursion value into dp -> dp[n]
-2. Check dp arrap -> if problem is already solved
+Steps of Dynamic Programming (Recursion - Memoization):
+0. Declare dp array => dp = [-1] * (n + 1)
+1. Store recursion value into dp -> dp[n] => dp[n] = f(n-1, dp) + f(n-2, dp) 
+2. Check dp arrap -> if problem is already solved => if dp[n] != -1, return dp[n]
 
 Things to see if the question is DP:
 -> Count the total number of ways
