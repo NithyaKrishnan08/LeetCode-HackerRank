@@ -26,3 +26,11 @@ Short cut for DP problems:
   1. Sum of all stuffs -> count all ways
   2. min of all stuffs -> find min
   3. max of all stuffs -> find max
+
+# Converting memoization to tabulation
+1. Declare the base case
+2. Express all states in the for loop
+3. Copy the recurrence and write
+
+Space Optimization
+# If there is a prev row and a prev column, we can space optimize it
