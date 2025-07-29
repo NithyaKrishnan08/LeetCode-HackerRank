@@ -31,6 +31,28 @@ Constraints:
 from typing import List
 
 class Solution:
+  # Recursion
+  def coinChange0(self, coins: List[int], amount: int) -> int:
+    n = len(coins)
+
+    def minimumElementsUtil0(index, amount):
+      if index == 0:
+        if amount % coins[0] == 0:
+          return amount // coins[0]
+        else:
+          return int(1e9)
+      
+      notTaken = minimumElementsUtil0(index - 1, amount)
+      
+      taken = int(1e9)
+      if coins[index] <= amount:
+        taken = 1 + minimumElementsUtil0(index, amount - coins[index])
+
+      no_coins = min(taken, notTaken)
+      return no_coins
+    
+    return minimumElementsUtil0(n - 1, amount)
+  
   def minimumElementsUtil(self, coins, index, amount, dp):
     if index == 0:
       if amount % coins[0] == 0:
@@ -95,11 +117,15 @@ if __name__ == "__main__":
   amount = 11
   solution = Solution()
 
-  print("Memoization method:")
-  result1 = solution.coinChange1(coins, amount)
+  print("Recursion method:")
+  result1 = solution.coinChange0(coins, amount)
   print(f"Minimum no. to coins to make {amount}: {result1}")
 
-  print("Tabulation method:")
-  result2 = solution.coinChange2(coins, amount)
+  print("Memoization method:")
+  result2 = solution.coinChange1(coins, amount)
   print(f"Minimum no. to coins to make {amount}: {result2}")
+
+  print("Tabulation method:")
+  result3 = solution.coinChange2(coins, amount)
+  print(f"Minimum no. to coins to make {amount}: {result3}")
 
