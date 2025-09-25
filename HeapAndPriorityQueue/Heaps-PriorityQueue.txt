@@ -1,0 +1,18 @@
+Heaps:
+Min heap & Max heap
+
+Extract min:
+heap.pop() -> O(log n)
+
+Insert:
+heap.push() -> O(log n)
+
+Peek:
+heap.peek() -> O(1)
+
+Heap Sort: -> O(n log n)
+
+Build heap:
+Heapify:
+TC :O(n)
+SC :O(1)
