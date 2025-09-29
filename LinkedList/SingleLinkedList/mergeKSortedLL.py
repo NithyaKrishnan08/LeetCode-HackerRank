@@ -87,7 +87,7 @@ if __name__ == "__main__":
 
   lists = [head1, head2, head3, head4]
 
-  mergedList = mergekSortedLL1(lists)
+  mergedList = mergekSortedLL2(lists)
   printLL(mergedList)
 
   # result2 = merge2SortedLL2(list1, list2)
