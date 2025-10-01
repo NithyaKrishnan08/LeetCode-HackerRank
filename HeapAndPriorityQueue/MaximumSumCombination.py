@@ -21,4 +21,40 @@ import heapq
 
 class Solution:
   def maxCombinations(self, a, b, k):
-    
+    n = len(a)
+    a.sort(reverse=True)
+    b.sort(reverse=True)
+
+    max_heap = []
+    visited = set()
+
+    heapq.heappush(max_heap, (-(a[0] + b[0]), 0, 0))
+    visited.add((0, 0))
+
+    result = []
+
+    while k > 0 and max_heap:
+      curr_sum, i, j = heapq.heappop(max_heap)
+      result.append(-curr_sum)
+      k -= 1
+
+      if i + 1 < n and (i + 1, j) not in visited:
+        heapq.heappush(max_heap, (-(a[i + 1] + b[j]), i + 1, j))
+        visited.add((i + 1, j))
+
+      if j + 1 < n and (i, j + 1) not in visited:
+        heapq.heappush(max_heap, (-(a[i] + b[j + 1]), i, j + 1))
+        visited.add((i, j + 1))
+
+    return result
+  
+if __name__ == '__main__':
+  a = [3, 2]
+  b = [1, 4]
+  k = 2
+  print(Solution().maxCombinations(a, b, k))  # [7, 6]
+
+  a = [1, 4, 2, 3]
+  b = [2, 5, 1, 6]
+  k = 3
+  print(Solution().maxCombinations(a, b, k))  # [10, 9, 9]
