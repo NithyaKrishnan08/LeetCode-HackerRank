@@ -1,3 +1,8 @@
+# Maximum subarray
+# https://leetcode.com/problems/maximum-subarray/description/
+# Difficulty: Medium
+# Kadane's algorithm
+
 '''
 Given an integer array nums, find the subarray with the largest sum, and return its sum.
 
