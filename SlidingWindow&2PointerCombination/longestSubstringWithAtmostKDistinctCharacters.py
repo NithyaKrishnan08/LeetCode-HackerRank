@@ -1,7 +1,7 @@
 # Longest Substring With At Most K Distinct Characters
 
 '''
-ou are given string S of length N, and an integer K. Your task is to find the length of the longest substring that contains at most K distinct characters.
+You are given string S of length N, and an integer K. Your task is to find the length of the longest substring that contains at most K distinct characters.
 
 Input Format:
 The first line contains an Integer 'T' which denotes the number of test cases/queries to be run. 
