@@ -1,3 +1,8 @@
+# Linked List Cycle
+# https://leetcode.com/problems/linked-list-cycle/description/
+# Leetcode: 141
+# Difficulty: Easy
+
 # To detect a cycle in the linked list
 
 class Node:

@@ -1,6 +1,7 @@
 # Linked List Cycle II
 # https://leetcode.com/problems/linked-list-cycle-ii/description/
 # Leetcode: 142
+# Difficulty: Medium
 
 # Floyd’s Tortoise and Hare Algorithm
 

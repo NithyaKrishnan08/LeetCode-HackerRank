@@ -1,6 +1,7 @@
 # Middle of the Linked List
 # https://leetcode.com/problems/middle-of-the-linked-list/
 # Leetcode Problem 876: Middle of the Linked List
+# Difficulty: Easy
 
 '''
 Given the head of a singly linked list, return the middle node of the linked list.
