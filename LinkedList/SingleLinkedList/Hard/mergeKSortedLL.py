@@ -1,16 +1,59 @@
 # Merge k sorted linked lists
+# https://leetcode.com/problems/merge-k-sorted-lists/description/
+# Leetcode: 23
+# Difficulty: Hard
+
+'''
+You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.
+
+Merge all the linked-lists into one sorted linked-list and return it.
+
+ 
+
+Example 1:
+
+Input: lists = [[1,4,5],[1,3,4],[2,6]]
+Output: [1,1,2,3,4,4,5,6]
+Explanation: The linked-lists are:
+[
+  1->4->5,
+  1->3->4,
+  2->6
+]
+merging them into one sorted linked list:
+1->1->2->3->4->4->5->6
+Example 2:
+
+Input: lists = []
+Output: []
+Example 3:
+
+Input: lists = [[]]
+Output: []
+ 
+
+Constraints:
+
+k == lists.length
+0 <= k <= 104
+0 <= lists[i].length <= 500
+-104 <= lists[i][j] <= 104
+lists[i] is sorted in ascending order.
+The sum of lists[i].length will not exceed 104.
+'''
+
 import queue
 
-class Node:
+class ListNode:
   def __init__(self, data, next=None):
     self.data = data
     self.next = next
 
 def convertArrayToLL(arr):
-  head = Node(arr[0])
+  head = ListNode(arr[0])
   mover = head
   for i in range(1, len(arr)):
-    temp = Node(arr[i])
+    temp = ListNode(arr[i])
     mover.next = temp
     mover = temp
   return head
@@ -18,7 +61,7 @@ def convertArrayToLL(arr):
 def merge2SortedLL(list1, list2):
   temp1 = list1
   temp2 = list2
-  dummyNode = Node(-1)
+  dummyNode = ListNode(-1)
   temp = dummyNode
   
   while temp1 is not None and temp2 is not None:
@@ -41,6 +84,7 @@ def merge2SortedLL(list1, list2):
 # Time Complexity : O( N*k(k+1)/2) ~ O(N*k^2)
 # Space Complexity : O(1)
 
+
 def mergekSortedLL1(listArray):
   head = listArray[0]
 
@@ -51,27 +95,29 @@ def mergekSortedLL1(listArray):
 # Optimized solution
 # Time Complexity : O( N*k(k+1)/2) ~ O(N*k^2)
 # Space Complexity : O(1)
+from collections import PriorityQueue
 
 def mergekSortedLL2(listArray):
-  pq = queue.PriorityQueue()
+  
+  pq = PriorityQueue()
 
-  for node in listArray:
+  for idx, node in enumerate(lists):
     if node:
-      pq.put((node.data, node))
+      pq.put((node.val, idx, node))
 
-  dummyNode = Node(-1)
-  temp = dummyNode
+  dummy = ListNode(-1)
+  temp = dummy
 
   while not pq.empty():
-    _, current_node = pq.get()
+    _, idx, current_node = pq.get()
 
     if current_node.next:
-      pq.put((current_node.next.data, current_node.next))
+      pq.put((current_node.next.val, idx, current_node.next))
 
     temp.next = current_node
     temp = temp.next
 
-  return dummyNode.next
+  return dummy.next
 
 def printLL(head):
   while head is not None:

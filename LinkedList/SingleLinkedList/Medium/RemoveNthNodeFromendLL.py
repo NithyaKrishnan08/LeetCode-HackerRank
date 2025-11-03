@@ -1,4 +1,7 @@
-# Reverse the linked list
+# Remove Nth Node From End of List
+# https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
+# Leetcode: 19
+# Difficulty: Medium
 
 class Node:
   def __init__(self, data, next=None):
@@ -35,20 +38,21 @@ def removeNthNodeFromEndLL1(head, n):
 # Space Complexity : O(1)
 def removeNthNodeFromEndLL2(head, n):
   fast = head
-  for i in range(n):
+  for _ in range(n):
     fast = fast.next
 
-  if fast is None:
+  if not fast:
     new_head = head.next
     return new_head
-  
+
   slow = head
-  while fast is not None and fast.next is not None:
+  while fast and fast.next:
     slow = slow.next
     fast = fast.next
 
   delete_node = slow.next
   slow.next = delete_node.next
+
   return head
 
 def printLL(head):

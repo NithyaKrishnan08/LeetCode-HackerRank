@@ -1,6 +1,7 @@
 # Palindrome Linked List
 # https://leetcode.com/problems/palindrome-linked-list/description/
 # Leetcode Problem 234: Palindrome Linked List
+# Diffiluty: Easy
 
 '''
 Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
