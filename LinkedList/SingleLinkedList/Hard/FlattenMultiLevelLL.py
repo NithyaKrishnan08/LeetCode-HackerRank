@@ -1,4 +1,5 @@
 # Flatten a multi-level linked list
+# Difficulty: Hard
 
 '''
 You are given a linked list structure, where each node has two pointers:

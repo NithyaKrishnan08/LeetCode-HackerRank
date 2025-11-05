@@ -1,6 +1,7 @@
 # Reverse Nodes in k-Group
 # https://leetcode.com/problems/reverse-nodes-in-k-group/description/
 # Leetcode Problem 25: Reverse Nodes in k-Group
+# Difficulty: Hard
 
 '''
 Given the head of a linked list, reverse the nodes of the list k at a time, and return the modified list.

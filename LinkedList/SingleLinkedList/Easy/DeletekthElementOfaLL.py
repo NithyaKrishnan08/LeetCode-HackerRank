@@ -1,4 +1,5 @@
 # Delete the kth element of a Linked List
+# Difficulty: Easy
 
 '''
 Problem Statement: Given a linked list, delete the kth element of the linked list and print the updated linked list.

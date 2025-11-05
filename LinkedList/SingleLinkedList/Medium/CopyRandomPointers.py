@@ -1,7 +1,7 @@
 # Copy random pointers in linked list
-# https://leetcode.com/problems/copy-list-with-random-pointer/description/?envType=problem-list-v2&envId=7p5x763&sorting=W3sic29ydE9yZGVyIjoiREVTQ0VORElORyIsIm9yZGVyQnkiOiJGUkVRVUVOQ1kifV0%3D&page=1
-
+# https://leetcode.com/problems/copy-list-with-random-pointer/description/
 # Leetcode: 138
+# Difficulty: Medium
 
 '''
 A linked list of length n is given such that each node contains an additional random pointer, which could point to any node in the list, or null.

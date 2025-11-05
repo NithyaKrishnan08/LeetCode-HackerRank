@@ -1,4 +1,6 @@
 # Remove Element at Kth Position in Linked List
+# Difficulty: Easy
+
 '''
 Given a Linked List and an integer k, remove the element at the kth position of the linked list.
 

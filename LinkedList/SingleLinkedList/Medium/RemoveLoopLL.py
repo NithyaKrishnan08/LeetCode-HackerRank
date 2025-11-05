@@ -1,4 +1,6 @@
 # Remove Loop in Linked List
+# Difficulty: Medium
+
 '''
 Given the head of a linked list that may contain a loop.  A loop means that the last node of the linked list is connected back to a node in the same list. The task is to remove the loop from the linked list (if it exists).
 '''
