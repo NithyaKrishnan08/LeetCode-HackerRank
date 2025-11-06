@@ -44,8 +44,81 @@ At most 2000 calls will be made to get, addAtHead, addAtTail, addAtIndex and del
 '''
 
 class Node:
-  def __init__(self, data, next=None):
-    self.data = data
+  def __init__(self, val=0, next=None):
+    self.val = val
     self.next = next
 
 class MyLinkedList:
+  def __init__(self):
+    self.head = None
+    self.size = 0
+        
+  def get(self, index: int) -> int:
+    # must be strictly less than self.size
+    if index < 0 or index >= self.size:
+      return -1
+    
+    temp = self.head
+    for _ in range(index):
+      temp = temp.next
+    return temp.val
+
+  def addAtHead(self, val: int) -> None:
+    new_node = Node(val, self.head)
+    self.head = new_node
+    self.size += 1
+
+  def addAtTail(self, val: int) -> None:
+    new_node = Node(val)
+    if not self.head:
+      self.head = new_node
+    else:
+      temp = self.head
+      while temp.next:
+        temp = temp.next
+      temp.next = new_node
+    self.size += 1 
+
+  def addAtIndex(self, index: int, val: int) -> None:
+    if index < 0 or index > self.size:
+      return
+
+    if index == 0:
+      self.addAtHead(val)
+      return
+    if index == self.size:
+      self.addAtTail(val)
+      return
+
+    prev = self.head
+    for _ in range(index - 1):
+      prev = prev.next
+    new_node = Node(val, prev.next)
+    prev.next = new_node
+    self.size += 1
+
+  def deleteAtIndex(self, index: int) -> None:
+    if index < 0 or index >= self.size:
+      return
+
+    if index == 0:
+      self.head = self.head.next
+    else:
+      prev = self.head
+      for _ in range(index - 1):
+        prev = prev.next
+      if prev.next:
+        prev.next = prev.next.next
+
+    self.size -= 1
+        
+
+  
+myLinkedList = MyLinkedList()
+myLinkedList.addAtHead(1)
+myLinkedList.addAtTail(3)
+myLinkedList.addAtIndex(1, 2)  # List: 1 -> 2 -> 3
+print(myLinkedList.get(1))     # Output: 2
+myLinkedList.deleteAtIndex(1)  # List: 1 -> 3
+print(myLinkedList.get(1))     # Output: 3
+    
