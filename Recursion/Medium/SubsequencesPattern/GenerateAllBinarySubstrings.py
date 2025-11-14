@@ -1,4 +1,5 @@
 # Generate all binary substrings of a given length
+# Difficulty: Medium
 
 '''
 Given an integer N , Print all binary strings of size N which do not contain consecutive 1s.
