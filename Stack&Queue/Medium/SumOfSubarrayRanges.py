@@ -1,4 +1,7 @@
 # Sum of Sub Array Ranges
+# https://leetcode.com/problems/sum-of-subarray-ranges/description/
+# Leetcode: 2104
+# Difficulty: Medium
 
 '''
 You are given an integer array nums. The range of a subarray of nums is the difference between the largest and smallest element in the subarray.
@@ -64,10 +67,10 @@ class Solution:
 
     return total_subArrayRange
   
-  # Optimal solution
+  # Better solution
   # TC: O(N^2)
   # SC: O(1)
-  def subArrayRanges(self, nums: List[int]) -> int:
+  def subArrayRanges2(self, nums: List[int]) -> int:
     n = len(nums)
     total_subArrayRange = 0
 
@@ -79,6 +82,46 @@ class Solution:
 
     return total_subArrayRange
   
+  # Optimal solution
+  # TC: O(N)
+  # SC: O(1)
+  def subArrayRanges(self, nums: List[int]) -> int:
+    n = len(nums)
+    
+    # Step 1: Calculate sum of subarray maximums
+    def sum_subarray_max(nums):
+      stack = []
+      res = 0
+      
+      for i in range(n + 1):
+        while stack and (i == n or nums[stack[-1]] < nums[i]):
+          mid = stack.pop()
+          left = stack[-1] if stack else -1
+          right = i
+          count = (mid - left) * (right - mid)
+          res += nums[mid] * count
+        stack.append(i)
+      
+      return res
+    
+    # Step 2: Calculate sum of subarray minimums
+    def sum_subarray_min(nums):
+      stack = []
+      res = 0
+      
+      for i in range(n + 1):
+        while stack and (i == n or nums[stack[-1]] > nums[i]):
+          mid = stack.pop()
+          left = stack[-1] if stack else -1
+          right = i
+          count = (mid - left) * (right - mid)
+          res += nums[mid] * count
+        stack.append(i)
+      
+      return res
+    
+    return sum_subarray_max(nums) - sum_subarray_min(nums)
+   
 
 if __name__ == "__main__":
   arr = [4,-2,-3,4,1]

@@ -1,4 +1,5 @@
 # Implement Queue using arrays
+# FIFO - First In First Out
 
 class Queue:
   def __init__(self):

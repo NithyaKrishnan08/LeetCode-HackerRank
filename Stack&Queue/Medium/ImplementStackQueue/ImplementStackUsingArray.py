@@ -1,4 +1,5 @@
 # Implement stack using array
+#  IFO - Last In First Out
 
 class Stack:
   def __init__(self):

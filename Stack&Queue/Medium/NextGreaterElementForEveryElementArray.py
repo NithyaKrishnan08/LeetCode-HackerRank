@@ -1,4 +1,5 @@
 # Next Greater Element (NGE) for every element in the given array
+# Difficulty: Medium
 
 '''
 Given an array arr[] of integers, the task is to find the Next Greater Element for each element of the array in order of their appearance in the array.

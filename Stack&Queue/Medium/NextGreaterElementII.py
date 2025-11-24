@@ -1,4 +1,7 @@
 # Next Greater Element II
+# https://leetcode.com/problems/next-greater-element-ii/description/
+# Leetcode: 503
+# Difficulty: Medium
 
 '''
 Given a circular integer array nums (i.e., the next element of nums[nums.length - 1] is nums[0]), return the next greater number for every element in nums.
@@ -44,7 +47,7 @@ class Solution:
 
     return nge_arr
 
-  # Brute Force solution
+  # Optimal solution
   # TC: O(4N)
   # SC: O(2N)
   def nextGreaterElements(self, nums: List[int]) -> List[int]:

@@ -21,6 +21,7 @@ Output: [["Q"]]
 Constraints:
 1 <= n <= 9
 '''
+
 from typing import List
 
 class Solution:

@@ -1,4 +1,7 @@
-# Check for Balanced Parenthesis
+# Valid Parentheses
+# https://leetcode.com/problems/valid-parentheses/description/
+# Leetcode: 20
+# Difficulty: Easy
 
 '''
 Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.

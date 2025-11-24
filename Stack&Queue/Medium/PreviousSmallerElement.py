@@ -1,4 +1,5 @@
-# Nearest Smallest Element
+# Previous Smallest Element
+# Difficulty: Medium
 
 from typing import List
 
@@ -18,7 +19,7 @@ class Solution:
 
     return prevSmallerElement_arr
 
-  # Brute Force solution
+  # Optimal solution
   # TC: O(2N)
   # SC: O(N) + O(N)
   def previousSmallerElements(self, nums: List[int]) -> List[int]:
