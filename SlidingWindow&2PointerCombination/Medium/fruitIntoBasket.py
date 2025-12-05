@@ -1,4 +1,7 @@
 # Fruit into baskets
+# https://leetcode.com/problems/fruit-into-baskets/description/
+# Leetcode: 904
+# Difficulty: Medium
 
 '''
 You are visiting a farm that has a single row of fruit trees arranged from left to right. The trees are represented by an integer array fruits where fruits[i] is the type of fruit the ith tree produces.
@@ -67,7 +70,7 @@ class Solution:
     fruit_freq = {}
 
     left, right = 0, 0
-    while right < n:
+    for right in range(n):
       fruit_freq[fruits[right]] = fruit_freq.get(fruits[right], 0) + 1
       
       while len(fruit_freq) > 2:
@@ -77,7 +80,6 @@ class Solution:
         left += 1
 
       max_len = max(max_len, right - left + 1)
-      right += 1
     
     return max_len
   

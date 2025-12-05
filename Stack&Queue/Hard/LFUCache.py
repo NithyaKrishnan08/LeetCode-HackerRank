@@ -1,4 +1,7 @@
 # LFU Cache
+# https://leetcode.com/problems/lfu-cache/description/
+# Leetcode: 460
+# Difficulty: Hard
 
 '''
 Design and implement a data structure for a Least Frequently Used (LFU) cache.

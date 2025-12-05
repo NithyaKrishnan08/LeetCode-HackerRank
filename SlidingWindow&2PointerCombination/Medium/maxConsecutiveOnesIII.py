@@ -1,4 +1,7 @@
 # Maximum Consecutive Ones III
+# https://leetcode.com/problems/max-consecutive-ones-iii/description/
+# Leetcode: 1004
+# Difficulty: Medium
 
 '''
 Given a binary array nums and an integer k, return the maximum number of consecutive 1's in the array if you can flip at most k 0's.
@@ -52,27 +55,28 @@ class Solution:
   # T: O(N)
   # S: O(1)
   def longestOnes(self, nums: List[int], k: int) -> int:
-    n = len(nums)
+    left = 0
+    zeros = 0
     max_len = 0
-    zeros_nums = 0
-    left, right = 0, 0
-    while right < n:
-      if nums[right] == 0:
-        zeros_nums += 1
-      if zeros_nums > k:
-        if nums[left] == 0:
-          zeros_nums -= 1
-        left += 1
-      if zeros_nums <= k:
-        sub_len = right - left + 1
-        max_len = max(max_len, sub_len)
 
-      right += 1
-    
+    for right in range(len(nums)):
+      # Expand window
+      if nums[right] == 0:
+        zeros += 1
+
+      # Shrink window if too many zeros
+      while zeros > k:
+        if nums[left] == 0:
+          zeros -= 1
+        left += 1
+
+      # Update best window size
+      max_len = max(max_len, right - left + 1)
+
     return max_len
   
 if __name__ == "__main__":
-  nums = [1,1,1,0,0,0,1,1,1,1,0]
+  nums = [1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0]
   k = 2
   solution = Solution()
   result = solution.longestOnes(nums, k)

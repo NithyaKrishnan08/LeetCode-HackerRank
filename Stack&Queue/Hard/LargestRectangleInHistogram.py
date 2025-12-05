@@ -1,20 +1,10 @@
 # Largest Rectangle in histogram
+# https://leetcode.com/problems/largest-rectangle-in-histogram/description/
+# Leetcode: 84
+# Difficulty: Hard
 
 '''
 
-
-Code
-
-Testcase
-
-Test Result
-Test Result
-84. Largest Rectangle in Histogram
-Hard
-
-Topics
-premium lock icon
-Companies
 Given an array of integers heights representing the histogram's bar height where the width of each bar is 1, return the area of the largest rectangle in the histogram.
 
  

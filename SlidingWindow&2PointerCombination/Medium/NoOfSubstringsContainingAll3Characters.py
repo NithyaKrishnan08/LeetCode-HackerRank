@@ -1,4 +1,7 @@
 # Number of Substrings Containing All Three Characters
+# https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/description/
+# Leetcode: 1358
+# Difficulty: Medium
 
 '''
 Given a string s consisting only of characters a, b and c.
@@ -49,7 +52,7 @@ class Solution:
   # Optimal solution
   # TC: O(N)
   # SC: O(3)
-  def numberOfSubstrings(self, s: str) -> int:
+  def numberOfSubstrings2(self, s: str) -> int:
     n = len(s)
     count = 0
     last_seen = [-1] * 3
@@ -59,6 +62,25 @@ class Solution:
         count = count + 1 + min(last_seen[0], last_seen[1], last_seen[2])
         
     return count
+  
+  # Optimal solution
+  # TC: O(N)
+  # SC: O(3)
+  def numberOfSubstrings(self, s: str) -> int:
+    n = len(s)
+    count = {'a': 0, 'b': 0, 'c': 0}
+    left = 0
+    result = 0
+    
+    for right in range(n):
+      count[s[right]] += 1
+      
+      while count['a'] > 0 and count['b'] > 0 and count['c'] > 0:
+        result += n - right
+        count[s[left]] -= 1
+        left += 1
+        
+    return result
   
 if __name__ == "__main__":
   s = "abcabc"

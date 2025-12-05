@@ -1,4 +1,7 @@
 # Online Stock Plan -> Maximum consecutive days for which the stock price was less than or equal to current days
+# https://leetcode.com/problems/online-stock-span/description/
+# Leetcode: 901
+# Difficulty: Medium
 
 '''
 Design an algorithm that collects daily price quotes for some stock and returns the span of that stock's price for the current day.

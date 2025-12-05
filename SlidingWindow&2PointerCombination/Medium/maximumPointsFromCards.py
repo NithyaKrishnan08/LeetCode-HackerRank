@@ -1,4 +1,7 @@
 # Maximum Points you can obtain from cards
+# https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/description/
+# Leetcode: 1423
+# Difficulty: Medium
 
 '''
 There are several cards arranged in a row, and each card has an associated number of points. The points are given in the integer array cardPoints.
@@ -37,7 +40,7 @@ Constraints:
 from typing import List
 
 class Solution:
-  # brute force solution
+  # Optimal solution
   # TC: O(2 * k)
   # SC: O(1)
   def maxScore(self, cardPoints: List[int], k: int) -> int:

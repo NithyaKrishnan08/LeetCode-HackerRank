@@ -1,4 +1,6 @@
 # Longest Substring With At Most K Distinct Characters
+# Leetcode prime membership - https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters
+# Difficulty - Hard
 
 '''
 You are given string S of length N, and an integer K. Your task is to find the length of the longest substring that contains at most K distinct characters.

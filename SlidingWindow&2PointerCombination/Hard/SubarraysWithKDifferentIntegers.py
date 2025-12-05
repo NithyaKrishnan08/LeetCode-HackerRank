@@ -1,4 +1,7 @@
 # Subarrays with K Different Integers
+# https://leetcode.com/problems/subarrays-with-k-different-integers/description/
+# Leetcode: 992
+# Difficulty - Hard
 
 '''
 Given an integer array nums and an integer k, return the number of good subarrays of nums.
