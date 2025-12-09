@@ -1,6 +1,7 @@
 # Merge k Sorted Lists
 # https://leetcode.com/problems/merge-k-sorted-lists/description/
 # Leetcode: 23
+# Difficulty: Hard
 
 '''
 You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.

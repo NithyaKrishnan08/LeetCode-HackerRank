@@ -1,6 +1,7 @@
 # Rank Transform of an Array
 # https://leetcode.com/problems/rank-transform-of-an-array/description/
 # Leetcode: 1331
+# Difficulty: Easy
 
 '''
 Given an array of integers arr, replace each element with its rank.
