@@ -11,22 +11,21 @@ Output=29
 The total cost of connecting all the ropes in this way is 5 + 9 + 15 = 29, which is the optimised cost.
 Now there are other ways to connect ropes. For example, if we connect 4 and 6 first (we get three ropes of lengths 3, 2, and 10), then connect 10 and 3 (we get two ropes of lengths 13 and 2). Finally, we connect 13 and 2. The total cost in this way is 10 + 13 + 15 = 38, which is not the optimal cost.
 '''
-from queue import PriorityQueue
+import heapq
 
 class Solution:
   def minCost(self, A):
-    pq = PriorityQueue()
-    for a in A:
-      pq.put(a)
+    heapq.heapify(A)
+    total_cost = 0
 
-    cost = 0
-    while pq.qsize() > 1:
-      first_min = pq.get()
-      second_min = pq.get()
-      cost += first_min + second_min
-      pq.put(first_min + second_min)
+    while len(A) > 1:
+      first_min = heapq.heappop(A)
+      second_min = heapq.heappop(A)
+      cost = first_min + second_min
+      total_cost += cost
+      heapq.heappush(A, cost)
 
-    return cost
+    return total_cost
   
 if __name__ == "__main__":
   solution = Solution()
